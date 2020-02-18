@@ -3,42 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LinkedList
+namespace DoublyLinkedList
 {
     public class MyLinkedList<T> : ICollection<T>
     {
         public int Count { get; private set; }
+        public bool IsEmpty => Count == 0;
 
         public MyLinkedListNode<T> Head { get; private set; }
-        
+        public MyLinkedListNode<T> Tail { get; private set; }
+
         public bool IsReadOnly => false;
 
         public void Add(T item)
         {
-            if (Head == null)
+            var node = new MyLinkedListNode<T>(item);
+            
+            if (IsEmpty)
             {
-                Head = new MyLinkedListNode<T>(item);
+                Head = node;
             }
             else
             {
-                var current = Head;
-                while (current.Next != null)
-                {
-                    current = current.Next;
-                }
+                Tail.Next = node;
+                node.Previews = Tail;
+            }
 
-                current.Next = new MyLinkedListNode<T>(item);
-            }            
-
+            Tail = node;
+            
             Count++;
         }
 
         public void AddFirst(T item)
         {
-            var current = new MyLinkedListNode<T>(item);
-            current.Next = Head;
+            var node = new MyLinkedListNode<T>(item);
+            
+            if (IsEmpty)
+            {
+                Tail = node;
+            }
+            else
+            {
+                Head.Previews = node;
+                node.Next = Head;
+            }
 
-            Head = current;
+            Head = node;
 
             Count++;
         }
@@ -46,6 +56,7 @@ namespace LinkedList
         public void Clear()
         {
             Head = null;
+            Tail = null;
             Count = 0;
         }
 
@@ -90,27 +101,34 @@ namespace LinkedList
 
         public bool Remove(T item)
         {
-            MyLinkedListNode<T> previews = null;
             var current = Head;
 
             while (current != null)
             {
                 if (current.Data.Equals(item))
                 {
-                    if (previews == null)
+                    if (current.Previews == null)
                     {
                         Head = current.Next;
                     }
                     else
                     {
-                        previews.Next = current.Next;
+                        current.Previews.Next = current.Next;
+                    }
+
+                    if (current.Next == null)
+                    {
+                        Tail = current.Previews;
+                    }
+                    else
+                    {
+                        current.Next.Previews = current.Previews;
                     }
 
                     Count--;
                     return true;
                 }
 
-                previews = current;
                 current = current.Next;
             }
 
