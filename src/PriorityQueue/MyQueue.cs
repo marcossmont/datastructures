@@ -12,6 +12,7 @@ namespace PriorityQueue
 
         public void Enqueue(T value)
         {
+            // in progess
             //var toAdd = new MyQueueElement<T>(value);
 
             //if (IsEmpty)
