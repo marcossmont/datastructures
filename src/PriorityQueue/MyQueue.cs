@@ -10,25 +10,33 @@ namespace PriorityQueue
         public bool IsEmpty => Head == null;
 
 
-        public void Enqueue(T value)
+        public void Enqueue(T value, Priority priority = Priority.Medium)
         {
-            // in progess
-            //var toAdd = new MyQueueElement<T>(value);
+            var toAdd = new MyQueueElement<T>(value, priority);
 
-            //if (IsEmpty)
-            //{
-            //    Head = toAdd;
-            //    return;
-            //}
+            if (IsEmpty)
+            {
+                Head = toAdd;
+                return;
+            }
 
-            //var current = Head;
-            //while (current != null)
-            //{
-            //    if (current.Priority < toAdd.Priority)
-            //    {
-            //        toAdd.Next = current;
-            //    }
-            //}
+            var current = Head;
+            MyQueueElement<T> previews = null;
+            while (current != null && ((int)current.Priority <= (int)toAdd.Priority))
+            {
+                previews = current;
+                current = current.Next;
+            }
+
+            toAdd.Next = current;
+            if (previews == null)
+            {
+                Head = toAdd;
+            }
+            else
+            {
+                previews.Next = toAdd;
+            }
         }
 
         public T Dequeue()

@@ -2,14 +2,14 @@
 {
     public class MyQueueElement<T>
     {
-        public MyQueueElement(T value, int priority = 1)
+        public MyQueueElement(T value, Priority priority = Priority.Medium)
         {
             Value = value;
             Priority = priority;
         }
 
         public T Value { get; set; }
-        public int Priority { get; set; }
+        public Priority Priority { get; set; }
         public MyQueueElement<T> Next { get; set; }
     }
 }
