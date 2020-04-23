@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BinaryTree\BinaryTree.csproj" />
     <ProjectReference Include="..\DoublyLinkedList\DoublyLinkedList.csproj" />
     <ProjectReference Include="..\LinkedList\LinkedList.csproj" />
     <ProjectReference Include="..\PriorityQueue\PriorityQueue.csproj" />
