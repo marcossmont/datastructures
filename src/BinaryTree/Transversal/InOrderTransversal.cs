@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BinaryTree.Transversal
 {
-    public class InOrderTransversal : IInOrder
+    public class InOrderTransversal : ITransversal
     {
         public void Navigate(MyBinaryTreeNode node, List<int> nodesList)
         {

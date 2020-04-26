@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BinaryTree.Transversal;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BinaryTree
 {
-    public class PreOrderTransversal : IInOrder
+    public class PreOrderTransversal : ITransversal
     {
         public void Navigate(MyBinaryTreeNode node, List<int> nodesList)
         {

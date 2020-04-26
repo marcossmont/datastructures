@@ -1,9 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using DoublyLinkedList;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace LinkedList
+namespace Tests
 {
     [TestClass]
     public class LinkedListTests
