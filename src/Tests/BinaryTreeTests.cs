@@ -11,6 +11,30 @@ namespace Tests
     {
         private MyBinaryTree tree;
 
+        [TestInitialize]
+        public void SetUp()
+        {
+            //     10
+            //    /  \
+            //   5    15
+            //  / \     \
+            // 3   7    20
+            //         /  \
+            //        17  25
+            //           /  \
+            //          23   27  
+            tree = new MyBinaryTree();
+            tree.Add(10);
+            tree.Add(5);
+            tree.Add(3);
+            tree.Add(7);
+            tree.Add(15);
+            tree.Add(20);
+            tree.Add(17);
+            tree.Add(25);
+            tree.Add(23);
+            tree.Add(27);
+        }
 
         [TestMethod]
         public void BinaryTree_Delete_HeadWithTwoChildrensAndRightWithoutLeftChild()
@@ -70,32 +94,6 @@ namespace Tests
             Assert.IsTrue(tree.Contains(25));
             Assert.IsFalse(tree.Contains(9));
             Assert.IsFalse(tree.Contains(11));
-        }
-
-
-        [TestInitialize]
-        public void SetUp()
-        {
-            //     10
-            //    /  \
-            //   5    15
-            //  / \     \
-            // 3   7    20
-            //         /  \
-            //        17  25
-            //           /  \
-            //          23   27  
-            tree = new MyBinaryTree();
-            tree.Add(10);
-            tree.Add(5);
-            tree.Add(3);
-            tree.Add(7);
-            tree.Add(15);
-            tree.Add(20);
-            tree.Add(17);
-            tree.Add(25);
-            tree.Add(23);
-            tree.Add(27);
         }
 
         [TestMethod]

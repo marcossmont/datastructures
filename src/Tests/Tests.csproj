@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BinaryTree\BinaryTree.csproj" />
     <ProjectReference Include="..\DoublyLinkedList\DoublyLinkedList.csproj" />
+    <ProjectReference Include="..\Hashtable\Hashtable.csproj" />
     <ProjectReference Include="..\LinkedList\LinkedList.csproj" />
     <ProjectReference Include="..\PriorityQueue\PriorityQueue.csproj" />
     <ProjectReference Include="..\Queue\Queue.csproj" />
